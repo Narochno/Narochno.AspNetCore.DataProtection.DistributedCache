@@ -24,7 +24,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
 
         private IEnumerable<XElement> GetAllElementsCore()
         {
-            var document = cache.GetStringAsync(prefix).Result;
+            var document = cache.GetString(prefix);
             XDocument xdoc;
             if (document == null)
             {
@@ -39,7 +39,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
 
         public void StoreElement(XElement element, string friendlyName)
         {
-            var document = cache.GetStringAsync(prefix).Result;
+            var document = cache.GetString(prefix);
             XDocument xdoc;
             if (document == null)
             {
@@ -50,7 +50,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
                 xdoc = XDocument.Parse(document);
             }
             xdoc.Add(element);
-            cache.SetStringAsync(prefix, xdoc.ToString(SaveOptions.DisableFormatting));
+            cache.SetString(prefix, xdoc.ToString(SaveOptions.DisableFormatting));
         }
     }
 }
