@@ -43,7 +43,7 @@ I'm using [CAS Authentication](https://github.com/akunzai/GSS.Authentication.CAS
             "v1");
 
 //TODO: think of a better way to create
-var dataFormat = new DistributedPropertiesDataFormat(distributedCache, dataProtector);
+var dataFormat = new DistributedPropertiesDataFormat(distributedCache, dataProtector, new PropertiesSerializer());
 
 ...
 
