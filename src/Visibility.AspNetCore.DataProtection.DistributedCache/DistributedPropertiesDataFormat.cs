@@ -8,17 +8,19 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
 {
     public class DistributedPropertiesDataFormat : ISecureDataFormat<AuthenticationProperties>
     {
-        public const string CacheKeyPrefix = "CachedPropertiesData-";
-
+        public const string CacheKeyPrefix = "DistributedPropertiesDataFormat-";
+        
         private readonly IDistributedCache cache;
         private readonly IDataProtector dataProtector;
-        private readonly IDataSerializer<AuthenticationProperties> serializer;
+        private readonly DistributedPropertiesDataFormatOptions options;
 
-        public DistributedPropertiesDataFormat(IDistributedCache cache, IDataProtector dataProtector, IDataSerializer<AuthenticationProperties> serializer)
+
+        public DistributedPropertiesDataFormat(IDistributedCache cache, IDataProtector dataProtector, 
+            DistributedPropertiesDataFormatOptions options = null)
         {
             this.cache = cache;
             this.dataProtector = dataProtector;
-            this.serializer = serializer;
+            this.options = options ?? new DistributedPropertiesDataFormatOptions();
         }
 
         public string Protect(AuthenticationProperties data)
@@ -31,9 +33,9 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
             var key = Guid.NewGuid().ToString();
             var cacheKey = $"{CacheKeyPrefix}{key}";
 
-            var serialized = serializer.Serialize(data);
+            var serialized = options.Serializer.Serialize(data);
             
-            cache.Set(cacheKey, serialized);
+            cache.Set(cacheKey, serialized, options.CacheOptions);
             var p = dataProtector.Protect(key);
             return p;
         }
@@ -49,7 +51,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
             var cacheKey = $"{CacheKeyPrefix}{key}";
             var serialized = cache.Get(cacheKey);
 
-            return serializer.Deserialize(serialized);
+            return options.Serializer.Deserialize(serialized);
         }
 
     }

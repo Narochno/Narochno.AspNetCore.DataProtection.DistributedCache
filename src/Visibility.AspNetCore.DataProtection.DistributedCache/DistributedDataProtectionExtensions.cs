@@ -9,7 +9,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
 {
     public static class DistributedDataProtectionExtensions
     {
-        public const string DataProtectionKeysName = "DataProtection-Keys-";
+        public const string DataProtectionKeysName = "DataProtection-Keys";
 
         public static IDataProtectionBuilder PersistKeysToDistributedCache(this IDataProtectionBuilder builder, string key = DataProtectionKeysName)
         {
