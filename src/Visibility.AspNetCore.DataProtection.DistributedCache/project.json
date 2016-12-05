@@ -1,5 +1,13 @@
 ﻿{
-  "version": "1.0.0",
+    "version": "1.0.0",
+    "title": "DistributedCache extensions for Data Protection",
+    "authors": [ "Adam Hathcock" ],
+    "language": "en-US",
+    "packOptions": {
+        "owners": [ "Adam Hathcock" ],
+        "projectUrl": "https://github.com/Visibilityltd/Visibility.AspNetCore.DataProtection.DistributedCache",
+        "requireLicenseAcceptance": false
+    },
 
     "dependencies": {
         "Microsoft.Extensions.Caching.Abstractions": "1.1.0",
