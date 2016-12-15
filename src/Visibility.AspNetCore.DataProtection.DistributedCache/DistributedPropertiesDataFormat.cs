@@ -8,8 +8,6 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
 {
     public class DistributedPropertiesDataFormat : ISecureDataFormat<AuthenticationProperties>
     {
-        public const string CacheKeyPrefix = "DistributedPropertiesDataFormat-";
-        
         private readonly IDistributedCache cache;
         private readonly IDataProtector dataProtector;
         private readonly DistributedPropertiesDataFormatOptions options;
@@ -31,7 +29,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
         public string Protect(AuthenticationProperties data, string purpose)
         {
             var key = Guid.NewGuid().ToString();
-            var cacheKey = $"{CacheKeyPrefix}{key}";
+            var cacheKey = $"{options.Prefix}{key}";
 
             var serialized = options.Serializer.Serialize(data);
             
@@ -48,7 +46,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
         public AuthenticationProperties Unprotect(string protectedText, string purpose)
         {
             var key = dataProtector.Unprotect(protectedText);
-            var cacheKey = $"{CacheKeyPrefix}{key}";
+            var cacheKey = $"{options.Prefix}{key}";
             var serialized = cache.Get(cacheKey);
 
             return options.Serializer.Deserialize(serialized);

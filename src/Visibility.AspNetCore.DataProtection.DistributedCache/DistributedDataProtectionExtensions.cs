@@ -9,16 +9,15 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
 {
     public static class DistributedDataProtectionExtensions
     {
-        public const string DataProtectionKeysName = "DataProtection-Keys";
-
-        public static IDataProtectionBuilder PersistKeysToDistributedCache(this IDataProtectionBuilder builder, string key = DataProtectionKeysName)
+        public static IDataProtectionBuilder PersistKeysToDistributedCache(this IDataProtectionBuilder builder, DistributedDataXmlRepositoryOptions options = null)
         {
             if (builder == null)
             {
                 throw new ArgumentNullException(nameof(builder));
             }
 
-            builder.Services.TryAddSingleton<IXmlRepository>(services => new DistributedDataXmlRepository(services.GetRequiredService<IDistributedCache>(), key));
+            builder.Services.TryAddSingleton<IXmlRepository>(services => new DistributedDataXmlRepository(services.GetRequiredService<IDistributedCache>(), 
+                options ?? new DistributedDataXmlRepositoryOptions()));
             return builder;
         }
     }

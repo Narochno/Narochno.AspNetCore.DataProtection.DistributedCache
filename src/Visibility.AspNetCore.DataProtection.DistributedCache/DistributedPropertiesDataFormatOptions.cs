@@ -8,5 +8,6 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
     {
         public DistributedCacheEntryOptions CacheOptions { get; set; } = new DistributedCacheEntryOptions();
         public IDataSerializer<AuthenticationProperties> Serializer { get; set; } = new PropertiesSerializer();
+        public string Prefix { get; set; } = "DistributedPropertiesDataFormat-";
     }
 }

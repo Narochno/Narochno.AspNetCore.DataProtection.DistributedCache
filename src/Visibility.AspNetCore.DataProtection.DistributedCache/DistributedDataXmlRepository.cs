@@ -9,12 +9,12 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
     public class DistributedDataXmlRepository : IXmlRepository
     {
         private readonly IDistributedCache cache;
-        private readonly string prefix;
+        private readonly DistributedDataXmlRepositoryOptions options;
 
-        public DistributedDataXmlRepository(IDistributedCache cache, string prefix)
+        public DistributedDataXmlRepository(IDistributedCache cache, DistributedDataXmlRepositoryOptions options)
         {
             this.cache = cache;
-            this.prefix = prefix;
+            this.options = options;
         }
 
         public IReadOnlyCollection<XElement> GetAllElements()
@@ -24,7 +24,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
 
         private IEnumerable<XElement> GetAllElementsCore()
         {
-            var document = cache.GetString(prefix);
+            var document = cache.GetString(options.Key);
             XDocument xdoc;
             if (document == null)
             {
@@ -39,7 +39,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
 
         public void StoreElement(XElement element, string friendlyName)
         {
-            var document = cache.GetString(prefix);
+            var document = cache.GetString(options.Key);
             XDocument xdoc;
             if (document == null)
             {
@@ -50,7 +50,7 @@ namespace Visibility.AspNetCore.DataProtection.DistributedCache
                 xdoc = XDocument.Parse(document);
             }
             xdoc.Add(element);
-            cache.SetString(prefix, xdoc.ToString(SaveOptions.DisableFormatting));
+            cache.SetString(options.Key, xdoc.ToString(SaveOptions.DisableFormatting), options.CacheOptions);
         }
     }
 }
