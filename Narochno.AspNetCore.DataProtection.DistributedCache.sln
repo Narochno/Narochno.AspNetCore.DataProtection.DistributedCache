@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Visibility.AspNetCore.DataProtection.DistributedCache", "src\Visibility.AspNetCore.DataProtection.DistributedCache\Visibility.AspNetCore.DataProtection.DistributedCache.xproj", "{38BA8DCD-0886-45B6-B3CE-047CE798CBB4}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Narochno.AspNetCore.DataProtection.DistributedCache", "src\Narochno.AspNetCore.DataProtection.DistributedCache\Narochno.AspNetCore.DataProtection.DistributedCache.xproj", "{38BA8DCD-0886-45B6-B3CE-047CE798CBB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
