@@ -13,10 +13,10 @@ before_build:
   - cmd: dotnet restore
 
 after_build:
-- dotnet pack "src\Visibility.AspNetCore.DataProtection.DistributedCache\project.json" -c Release
+- dotnet pack "src\Narochno.AspNetCore.DataProtection.DistributedCache\project.json" -c Release
 
 artifacts:
-- path: src\Visibility.AspNetCore.DataProtection.DistributedCache\bin\Release\*.nupkg
+- path: src\Narochno.AspNetCore.DataProtection.DistributedCache\bin\Release\*.nupkg
 
 deploy:  
   - provider: Environment
