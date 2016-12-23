@@ -1,4 +1,4 @@
-# DistributedCache extensions for Data Protection #
+# DistributedCache extensions for Data Protection [![Build status](https://ci.appveyor.com/api/projects/status/y11tw8rhxdms2i8v/branch/master?svg=true)](https://ci.appveyor.com/project/Narochno/narochno-aspnetcore-dataprotection-distributedcach/branch/master)
 
 This contains two simple classes:
 
