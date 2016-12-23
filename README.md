@@ -14,7 +14,7 @@ I was just going to use Redis but the implementation is hard-coded to Redis.  I'
 
 ### Usage ###
 
-```
+```csharp
  services.AddDataProtection()
                 .PersistKeysToDistributedCache();
 ```
@@ -33,7 +33,7 @@ Useful for any Authentication middleware.  You need to hook it into the `Authent
 
 I'm using [CAS Authentication](https://github.com/akunzai/GSS.Authentication.CAS)
 
-```
+```csharp
  var dataProtectionProvider = app.ApplicationServices.GetRequiredService<IDataProtectionProvider>();
  var distributedCache = app.ApplicationServices.GetRequiredService<IDistributedCache>();
 
