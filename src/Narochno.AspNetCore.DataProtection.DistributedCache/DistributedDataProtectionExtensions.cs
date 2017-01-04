@@ -5,7 +5,7 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace Visibility.AspNetCore.DataProtection.DistributedCache
+namespace Narochno.AspNetCore.DataProtection.DistributedCache
 {
     public static class DistributedDataProtectionExtensions
     {

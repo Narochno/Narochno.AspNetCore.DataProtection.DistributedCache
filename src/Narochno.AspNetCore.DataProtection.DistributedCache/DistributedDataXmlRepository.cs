@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.AspNetCore.DataProtection.Repositories;
+using Microsoft.Extensions.Caching.Distributed;
 
-namespace Visibility.AspNetCore.DataProtection.DistributedCache
+namespace Narochno.AspNetCore.DataProtection.DistributedCache
 {
     public class DistributedDataXmlRepository : IXmlRepository
     {
