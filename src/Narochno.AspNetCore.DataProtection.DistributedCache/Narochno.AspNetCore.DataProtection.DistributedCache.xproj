@@ -7,7 +7,7 @@
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
     <ProjectGuid>38ba8dcd-0886-45b6-b3ce-047ce798cbb4</ProjectGuid>
-    <RootNamespace>Visibility.AspNetCore.DataProtection.DistributedCache</RootNamespace>
+    <RootNamespace>Narochno.AspNetCore.DataProtection.DistributedCache</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>

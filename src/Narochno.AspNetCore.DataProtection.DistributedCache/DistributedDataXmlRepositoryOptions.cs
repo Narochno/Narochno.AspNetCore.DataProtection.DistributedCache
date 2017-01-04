@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 
-namespace Visibility.AspNetCore.DataProtection.DistributedCache
+namespace Narochno.AspNetCore.DataProtection.DistributedCache
 {
     public class DistributedDataXmlRepositoryOptions
     {

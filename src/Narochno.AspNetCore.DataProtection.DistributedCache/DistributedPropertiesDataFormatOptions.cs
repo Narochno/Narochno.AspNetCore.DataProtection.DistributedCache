@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.Extensions.Caching.Distributed;
 
-namespace Visibility.AspNetCore.DataProtection.DistributedCache
+namespace Narochno.AspNetCore.DataProtection.DistributedCache
 {
     public class DistributedPropertiesDataFormatOptions
     {
